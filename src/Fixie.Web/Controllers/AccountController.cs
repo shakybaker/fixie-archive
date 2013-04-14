@@ -16,6 +16,12 @@ namespace Fixie.Web.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            return View(OAuthWebSecurity.RegisteredClientData);
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

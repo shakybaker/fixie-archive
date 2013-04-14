@@ -17,7 +17,7 @@ namespace Fixie.Web.Controllers
             }
             else
             {
-                return View(OAuthWebSecurity.RegisteredClientData);
+                return RedirectToAction("Login", "Account");
             }
         }
 
