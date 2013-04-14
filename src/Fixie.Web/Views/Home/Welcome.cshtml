@@ -3,9 +3,13 @@
     ViewBag.Title = "Welcome!";
 }
 
-<h2>Welcome @Model.Name</h2>
 @using (Html.BeginForm("LogOff", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
 {
-    @Html.AntiForgeryToken()
-    <button type="submit" name="provider" title="Log Off">Log Off</button>
+    <fieldset id="socialLoginList">
+        <legend>Welcome @Model.Name</legend>
+        <p>
+            @Html.AntiForgeryToken()
+            <button type="submit" name="provider" title="Log Off">Log Off</button>
+        </p>
+    </fieldset>
 }
