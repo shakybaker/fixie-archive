@@ -76,7 +76,7 @@ namespace Fixie.Web.Controllers
 
             if (User.Identity.IsAuthenticated || !OAuthWebSecurity.TryDeserializeProviderUserId(model.ExternalLoginData, out provider, out providerUserId))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Welcome", "Home");
             }
 
             if (ModelState.IsValid)
@@ -115,7 +115,7 @@ namespace Fixie.Web.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Welcome", "Home");
         }
 
         private ActionResult RedirectToLocal(string returnUrl)
@@ -126,7 +126,7 @@ namespace Fixie.Web.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Welcome", "Home");
             }
         }
     }

@@ -10,19 +10,6 @@ namespace Fixie.Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Welcome");
-            }
-            else
-            {
-                return RedirectToAction("Login", "Account");
-            }
-        }
-
-
         public ActionResult Welcome()
         {
             return View(User.Identity);
