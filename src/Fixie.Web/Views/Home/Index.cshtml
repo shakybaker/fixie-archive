@@ -1,6 +1,21 @@
-﻿@{
+﻿@model ICollection<AuthenticationClientData>
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
-<div>blah blah blah</div>
+<div>
+    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset id="socialLoginList">
+            <legend>Log in using another service</legend>
+            <p>
+            @foreach (AuthenticationClientData p in Model)
+            {
+                <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">@p.DisplayName</button>
+            }
+            </p>
+        </fieldset>
+    }
+</div>
