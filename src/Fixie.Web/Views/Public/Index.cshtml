@@ -1,33 +1,30 @@
-﻿@model ICollection<AuthenticationClientData>
-@{
+﻿@{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_PublicLayout.cshtml";
 }
+<div ng-view></div>
 
-<div class="jumbotron">
-    <h1>Super awesome marketing speak!</h1>
-    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    @using (Html.BeginForm("ExternalLogin", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
-    {
-        @Html.AntiForgeryToken()
-        <fieldset id="socialLoginList">
-            @foreach (AuthenticationClientData p in Model)
-            {
-                <button class="btn btn-large btn-success" type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">Sign in with @p.DisplayName</button>
+@section Scripts
+{
+    <script type="text/javascript">
+        var publicZone = angular.module('zone', []);
+        publicZone.config(['$routeProvider', function ($routeProvider) {
+            $routeProvider.
+                when('/home', { controller: DummyCtrl, templateUrl: '/Public/Home' }).
+                when('/about', { controller: DummyCtrl, templateUrl: '/Public/About' }).
+                when('/contact', { controller: DummyCtrl, templateUrl: '/Public/Contact' }).
+                otherwise({ redirectTo: '/home' });
+        }]);
+
+        function getClass(path) {
+            if ($location.path().substr(0, path.length) == path) {
+                return "active";
+            } else {
+                return "";
             }
-        </fieldset>
-    }
-</div>
+        };
 
-<hr>
-
-<div class="row-fluid marketing">
-    <div class="span6">
-        <h4>Subheading</h4>
-        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-    </div>
-
-    <div class="span6">
-        <h4>Subheading</h4>
-        <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-    </div>
-</div>
+        function DummyCtrl($scope, $routeParams) {
+        }
+    </script>
+}

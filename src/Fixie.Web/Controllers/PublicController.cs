@@ -20,5 +20,20 @@ namespace Fixie.Web.Controllers
             return View(OAuthWebSecurity.RegisteredClientData);
         }
 
+        public PartialViewResult Home()
+        {
+            return PartialView(OAuthWebSecurity.RegisteredClientData);
+        }
+
+        public PartialViewResult About()
+        {
+            return PartialView(OAuthWebSecurity.RegisteredClientData);
+        }
+
+        public PartialViewResult Contact()
+        {
+            return PartialView(OAuthWebSecurity.RegisteredClientData);
+        }
+
     }
 }

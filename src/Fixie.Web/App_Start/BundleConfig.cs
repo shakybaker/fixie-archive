@@ -30,6 +30,7 @@ namespace Fixie.Web
                "~/Scripts/jquery-{version}.js",
                "~/Scripts/less.min.js",
                "~/Scripts/bootstrap.js",
+               "~/Scripts/angular.js",
                "~/Scripts/linq.js");
             commonScriptsBundle.Transforms.Add(jsTransformer);
             commonScriptsBundle.Orderer = nullOrderer;

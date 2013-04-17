@@ -4,7 +4,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="zone">
 <head>
     <meta charset="utf-8">
     <title>Fixie</title>
@@ -61,11 +61,11 @@
 
         <div class="masthead">
             <ul class="nav nav-pills pull-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li ng-class="getClass('/home')"><a href="#/home">Home</a></li>
+                <li ng-class="getClass('/about')"><a href="#/about">About</a></li>
+                <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>
             </ul>
-            <h3 class="muted">Fixie</h3>
+            <h3><img src="/Content/images/logo.png"/></h3>
         </div>
 
         <hr>
@@ -79,6 +79,6 @@
     </div>
 
     @Scripts.Render("~/Bundles/CommonScripts")
-
+    @RenderSection("Scripts", false);
 </body>
 </html>
