@@ -16,12 +16,6 @@ namespace Fixie.Web.Controllers
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
-        [AllowAnonymous]
-        public ActionResult Login()
-        {
-            return View(OAuthWebSecurity.RegisteredClientData);
-        }
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -115,7 +109,7 @@ namespace Fixie.Web.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Welcome", "Home");
+            return RedirectToAction("Index", "Public");
         }
 
         private ActionResult RedirectToLocal(string returnUrl)
